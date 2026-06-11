@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://s413u4tu41we"
+path="res://.godot/imported/TheSpiv.atlas-7ca349ec0d76fdf51d443a03b00a800b.spatlas"
+
+[deps]
+
+source_file="res://assets/TheSpiv/TheSpiv.atlas"
+dest_files=["res://.godot/imported/TheSpiv.atlas-7ca349ec0d76fdf51d443a03b00a800b.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

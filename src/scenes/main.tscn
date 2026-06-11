@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bnp7fji8x8qep"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://d3f6w4l4ggrgd" path="res://assets/amagalm/amagalm.atlas" id="3_jyhfs"]
+[ext_resource type="SpineAtlasResource" uid="uid://hmybslfork4f" path="res://assets/output/ganger_enforcer.sprite.combat.atlas" id="3_tbgi4"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://c2xug4jbs8j2a" path="res://assets/amagalm/amagalm.skel" id="4_tbgi4"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://dvwbbkdd53ums" path="res://assets/output/ganger_enforcer.sprite.combat.skel" id="4_tefeu"]
+
+[sub_resource type="SpineSkeletonDataResource" id="SpineSkeletonDataResource_sgp6g"]
+atlas_res = ExtResource("3_jyhfs")
+skeleton_file_res = ExtResource("4_tbgi4")
+
+[sub_resource type="SpineSkeletonDataResource" id="SpineSkeletonDataResource_o6xl0"]
+atlas_res = ExtResource("3_tbgi4")
+skeleton_file_res = ExtResource("4_tefeu")
+
+[node name="Main" type="Node" unique_id=1349355324]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1845760987]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.995633)
+
+[node name="SpineSprite3D" type="SpineSprite3D" parent="." unique_id=384430741]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0010070801, 0.117118835, -0.018432617)
+skeleton_data_res = SubResource("SpineSkeletonDataResource_sgp6g")
+pixel_size = 0.1
+preview_skin = "cloak"
+preview_animation = "idle"
+preview_frame = false
+preview_time = 0.0
+
+[node name="SpineSprite2D" type="SpineSprite2D" parent="." unique_id=456702249]
+position = Vector2(398, 431)
+skeleton_data_res = SubResource("SpineSkeletonDataResource_o6xl0")
+preview_skin = "default"
+preview_animation = "combat"
+preview_frame = false
+preview_time = 0.0

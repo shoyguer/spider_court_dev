@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://d3f53771d2n45"
+path="res://.godot/imported/TheSpiv.skel-8924bace195c4d869d42b80896dd0c69.spskel"
+
+[deps]
+
+source_file="res://assets/TheSpiv/TheSpiv.skel"
+dest_files=["res://.godot/imported/TheSpiv.skel-8924bace195c4d869d42b80896dd0c69.spskel"]
+
+[params]
+

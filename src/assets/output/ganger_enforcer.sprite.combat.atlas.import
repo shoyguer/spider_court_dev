@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://hmybslfork4f"
+path="res://.godot/imported/ganger_enforcer.sprite.combat.atlas-c90462b5051add7f040d7d37c155e185.spatlas"
+
+[deps]
+
+source_file="res://assets/output/ganger_enforcer.sprite.combat.atlas"
+dest_files=["res://.godot/imported/ganger_enforcer.sprite.combat.atlas-c90462b5051add7f040d7d37c155e185.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://b3rtd1lnlrx68"
+path="res://.godot/imported/ganger_gunner.sprite.combat.skel-f6842bfdd883447e8204171fcfde4731.spskel"
+
+[deps]
+
+source_file="res://assets/output/ganger_gunner.sprite.combat.skel"
+dest_files=["res://.godot/imported/ganger_gunner.sprite.combat.skel-f6842bfdd883447e8204171fcfde4731.spskel"]
+
+[params]
+
