@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://c2xug4jbs8j2a"
+path="res://.godot/imported/amagalm.skel-e70b310d5340a94b54739c414f0d3c50.spskel"
+
+[deps]
+
+source_file="res://characters/player/amagalm/amagalm.skel"
+dest_files=["res://.godot/imported/amagalm.skel-e70b310d5340a94b54739c414f0d3c50.spskel"]
+
+[params]
+

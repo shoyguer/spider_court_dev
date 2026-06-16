@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlkam7ucuusjs"
-path="res://.godot/imported/ganger_lookout.sprite.combat.png-3cf1453a63f6b9fd40f4596bf809ee1d.ctex"
+uid="uid://c504ytjyrnawl"
+path="res://.godot/imported/ganger_gunner.sprite.combat.png-95d52c40f461708c1b08bcf269005b11.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/output/ganger_lookout.sprite.combat.png"
-dest_files=["res://.godot/imported/ganger_lookout.sprite.combat.png-3cf1453a63f6b9fd40f4596bf809ee1d.ctex"]
+source_file="res://characters/enemy/output/ganger_gunner.sprite.combat.png"
+dest_files=["res://.godot/imported/ganger_gunner.sprite.combat.png-95d52c40f461708c1b08bcf269005b11.ctex"]
 
 [params]
 

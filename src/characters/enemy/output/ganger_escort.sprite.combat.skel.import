@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://bubx3sj1yxyep"
+path="res://.godot/imported/ganger_escort.sprite.combat.skel-0341403663147034fb21d334704d2546.spskel"
+
+[deps]
+
+source_file="res://characters/enemy/output/ganger_escort.sprite.combat.skel"
+dest_files=["res://.godot/imported/ganger_escort.sprite.combat.skel-0341403663147034fb21d334704d2546.spskel"]
+
+[params]
+

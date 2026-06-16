@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://bmwwdqbxniva0"
+path="res://.godot/imported/ganger_escort.sprite.combat.atlas-12285b361d7226d8d92d507ee04d950b.spatlas"
+
+[deps]
+
+source_file="res://characters/enemy/output/ganger_escort.sprite.combat.atlas"
+dest_files=["res://.godot/imported/ganger_escort.sprite.combat.atlas-12285b361d7226d8d92d507ee04d950b.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"
