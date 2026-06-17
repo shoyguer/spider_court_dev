@@ -4,7 +4,7 @@ extends CharacterBody3D
 
 
 ## Movement speed in units per second.
-@export var speed: float = 5.0
+@export var speed: float = 3.5
 ## Animation name played while idle.
 @export var idle_anim: String = "idle"
 ## Animation name played while moving.

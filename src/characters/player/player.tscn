@@ -38,7 +38,9 @@ debug_color = Color(0.8963213, 0.2571483, 0.48276043, 0.41960785)
 [node name="SpineSprite3D" type="SpineSprite3D" parent="." unique_id=1307080538]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.0010070801, 0.117118835, -0.018432617)
 skeleton_data_res = SubResource("SpineSkeletonDataResource_c6leb")
-preview_skin = "default"
+pixel_size = 0.06
+billboard = 1
+preview_skin = "cloak"
 preview_animation = "idle"
 preview_frame = false
 preview_time = 0.0
@@ -53,6 +55,6 @@ script = ExtResource("5_c6leb")
 script = ExtResource("6_c6leb")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=491643602]
-transform = Transform3D(1, 0, 0, 0, 0.9345713, 0.35577586, 0, -0.35577586, 0.9345713, 0, 43.03501, 69.857895)
+transform = Transform3D(1, 0, 0, 0, 0.8655538, 0.50081605, 0, -0.50081605, 0.8655538, 0, 70.29406, 76.75976)
 
 [node name="Hud" parent="." unique_id=546996681 instance=ExtResource("7_dirf7")]

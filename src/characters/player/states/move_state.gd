@@ -6,6 +6,7 @@ extends State
 ## Plays the walk animation.
 func enter() -> void:
 	context.play_animation(context.walk_anim)
+	context.spine.set_time_scale(2.0)
 
 
 ## Moves the player and returns to idle when there is no input.

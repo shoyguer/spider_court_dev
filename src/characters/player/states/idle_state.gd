@@ -7,6 +7,7 @@ extends State
 func enter() -> void:
 	context.velocity = Vector3.ZERO
 	context.play_animation(context.idle_anim)
+	context.spine.set_time_scale(1.0)
 
 
 ## Switches to the move state as soon as there is input.

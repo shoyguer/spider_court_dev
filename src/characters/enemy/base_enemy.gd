@@ -14,7 +14,7 @@ extends CharacterBody3D
 ## Distance at which the enemy enters combat.
 @export var combat_range: float = 1.5
 ## Speed used while chasing the player.
-@export var speed: float = 3.0
+@export var speed: float = 2.5
 ## How fast the sprite flips when changing direction.
 @export var turn_speed: float = 12.0
 ## Health pool of this enemy.

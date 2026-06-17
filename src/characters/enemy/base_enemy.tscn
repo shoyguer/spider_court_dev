@@ -36,8 +36,9 @@ shape = SubResource("CapsuleShape3D_ii7m2")
 debug_color = Color(0.8963213, 0.2571483, 0.48276043, 0.41960785)
 
 [node name="SpineSprite3D" type="SpineSprite3D" parent="." unique_id=970732159]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0010070801, 0.117118835, -0.018432617)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0010070801, -1.8476377, -0.018432617)
 skeleton_data_res = SubResource("SpineSkeletonDataResource_k4a2y")
+billboard = 1
 preview_skin = "default"
 preview_animation = "None"
 preview_frame = false
