@@ -75,9 +75,9 @@ func _print_stats() -> void:
 	if stats == null:
 		print("%s has no Stats assigned." % name)
 		return
-	print("%s stats -> HP:%d WIL:%d STR:%d INT:%d DEF:%d LCK:%d SPD:%d" % [
-		name, stats.hp, stats.will, stats.strength,
-		stats.intelligence, stats.defense, stats.luck, stats.speed])
+	print("%s stats -> HP:%d SAN:%d ATK:%d DEF:%d LCK:%d SPD:%d" % [
+		name, stats.hp, stats.sanity, stats.attack,
+		stats.defense, stats.luck, stats.speed])
 
 
 ## Plays an animation, resolving fallbacks and skipping if already playing.

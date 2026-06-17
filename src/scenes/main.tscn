@@ -16,6 +16,8 @@ sky = SubResource("Sky_sugp2")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o5qli"]
 
+[sub_resource type="StatPool" id="StatPool_0wfyh"]
+
 [node name="Main" type="Node" unique_id=1349355324]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=985304332]
@@ -38,6 +40,7 @@ debug_color = Color(0.91065425, 0.1691744, 0.6078782, 0.41960785)
 
 [node name="BaseEnemy" parent="." unique_id=496892301 instance=ExtResource("1_0wfyh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.067245, 6.5104713, -150.8893)
+health = SubResource("StatPool_0wfyh")
 
 [node name="Player" parent="." unique_id=176544344 instance=ExtResource("2_sugp2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 4, 0)

@@ -8,6 +8,8 @@
 [ext_resource type="Script" uid="uid://b8rn6vn5mdx60" path="res://characters/enemy/states/enemy_chase_state.gd" id="4_6dagl"]
 [ext_resource type="Script" uid="uid://dsb0e12dquhke" path="res://characters/enemy/states/enemy_combat_state.gd" id="5_mc2qu"]
 
+[sub_resource type="StatPool" id="StatPool_dadja"]
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ii7m2"]
 radius = 0.55755615
 height = 1.1151123
@@ -26,6 +28,7 @@ script = ExtResource("1_ry5y7")
 aggro_range = 80.0
 combat_range = 3.0
 speed = 50.0
+health = SubResource("StatPool_dadja")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=340421876]
 transform = Transform3D(18.190592, 0, 0, 0, 30.93816, 0, 0, 0, 0.8462683, 0, 17.269823, 0)
@@ -35,8 +38,8 @@ debug_color = Color(0.8963213, 0.2571483, 0.48276043, 0.41960785)
 [node name="SpineSprite3D" type="SpineSprite3D" parent="." unique_id=970732159]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0010070801, 0.117118835, -0.018432617)
 skeleton_data_res = SubResource("SpineSkeletonDataResource_k4a2y")
-preview_skin = "Default"
-preview_animation = "-- Empty --"
+preview_skin = "default"
+preview_animation = "None"
 preview_frame = false
 preview_time = 0.0
 
