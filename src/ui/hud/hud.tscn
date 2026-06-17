@@ -32,6 +32,7 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_ilwqg")
 layout_mode = 2
 
 [node name="HealthBar" type="ProgressBar" parent="PanelContainer/VBoxContainer" unique_id=151514884]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 20)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_xmswo")

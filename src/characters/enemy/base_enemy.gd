@@ -56,8 +56,8 @@ func _physics_process(delta: float) -> void:
 
 ## Adjusts health with keys 1 (decrease) and 2 (increase) for testing.
 func _unhandled_input(event: InputEvent) -> void:
-	if not health:
-		return
+	if not health: return
+	
 	if event is InputEventKey and event.pressed and not event.echo:
 		var key_event: InputEventKey = event as InputEventKey
 		if key_event.keycode == KEY_1:
@@ -74,14 +74,14 @@ func _on_health_changed(old_value: int, new_value: int, increased: bool) -> void
 
 ## Plays an animation, resolving fallbacks and skipping if already playing.
 func play_animation(anim_name: String, loop: bool = true) -> void:
-	if spine == null:
-		return
+	if not spine: return
+	
 	var anim_state: SpineAnimationState = spine.get_animation_state()
-	if anim_state == null:
-		return
+	
+	if not anim_state: return
 	anim_name = _resolve_anim(anim_name)
-	if anim_name == "" or anim_name == _current_anim:
-		return
+	
+	if anim_name == "" or anim_name == _current_anim: return
 	_current_anim = anim_name
 	anim_state.set_animation(anim_name, loop, 0)
 
@@ -89,12 +89,13 @@ func play_animation(anim_name: String, loop: bool = true) -> void:
 ## Returns the requested animation, or the first available one if missing.
 func _resolve_anim(anim_name: String) -> String:
 	var data: SpineSkeletonDataResource = spine.get_skeleton_data_res()
-	if data == null:
-		return ""
-	if data.find_animation(anim_name) != null:
+	if not data: return ""
+	
+	if data.find_animation(anim_name):
 		return anim_name
 	# This skeleton lacks the requested animation, fall back to the first one.
 	var anims: Array = data.get_animations()
+	
 	if anims.size() > 0:
 		return anims[0].get_name()
 	return ""
@@ -102,16 +103,15 @@ func _resolve_anim(anim_name: String) -> String:
 
 ## Sets the target facing based on horizontal movement.
 func face_direction(dir_x: float) -> void:
-	if absf(dir_x) < 0.01:
-		return
+	if absf(dir_x) < 0.01: return
 	_facing = -1.0 if dir_x < 0.0 else 1.0
 
 
 ## Smoothly interpolates the sprite scale toward the target facing.
 func _update_facing(delta: float) -> void:
 	var skeleton: SpineSkeleton = spine.get_skeleton()
-	if skeleton == null:
-		return
+	
+	if not skeleton: return
 	# Frame-rate independent smoothing; passing through 0 gives a paper flip.
 	_scale_x = lerpf(_scale_x, _facing, 1.0 - exp(-turn_speed * delta))
 	skeleton.set_scale_x(_scale_x)
@@ -119,14 +119,15 @@ func _update_facing(delta: float) -> void:
 
 ## Enters combat when the player left-clicks this enemy.
 func _on_clickable_area_input_event(_camera: Node, event: InputEvent, _pos: Vector3, _normal: Vector3, _shape: int) -> void:
-	if not event is InputEventMouseButton:
-		return
+	if not event is InputEventMouseButton: return
+	
 	var mb: InputEventMouseButton = event as InputEventMouseButton
-	if not mb.pressed or mb.button_index != MOUSE_BUTTON_LEFT:
-		return
+	
+	if not mb.pressed or mb.button_index != MOUSE_BUTTON_LEFT: return
+	
 	var player: Player = get_tree().get_first_node_in_group("player") as Player
-	if not player:
-		return
+	
+	if not player: return
 	combat_target = player
 	state_machine.change_state(combat_state)
 	get_viewport().set_input_as_handled()

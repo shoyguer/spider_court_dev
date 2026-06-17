@@ -10,7 +10,7 @@ func enter() -> void:
 
 ## Moves the player and returns to idle when there is no input.
 func physics_update() -> State:
-	var input_dir: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	var input_dir: Vector2 = Input.get_vector("left", "right", "up", "down")
 	if input_dir == Vector2.ZERO:
 		return context.idle_state
 	# Input y maps to world Z so up/down moves into/out of the screen.

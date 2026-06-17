@@ -3,7 +3,7 @@ extends CanvasLayer
 ## HUD that mirrors the player's health on a ProgressBar.
 
 
-@onready var health_bar: ProgressBar = $PanelContainer/VBoxContainer/HealthBar
+@onready var health_bar: ProgressBar = %HealthBar
 
 
 ## Binds the bar to a StatPool and does the first sync.
