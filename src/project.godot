@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Spider's Court"
-config/version="0.0.001-alpha"
+config/version="0.0.002-alpha"
 run/main_scene="uid://bnp7fji8x8qep"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"

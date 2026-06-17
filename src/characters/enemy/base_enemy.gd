@@ -17,6 +17,8 @@ extends CharacterBody3D
 @export var speed: float = 3.0
 ## How fast the sprite flips when changing direction.
 @export var turn_speed: float = 12.0
+## Health pool of this enemy.
+@export var health: StatPool = null
 
 var combat_target: Player = null
 var _current_anim: String = ""
@@ -36,10 +38,14 @@ var combat_anim: String = "combat"
 @onready var wander_timer: Timer = $WanderTimer
 
 
-## Registers the enemy and starts the state machine.
+## Registers the enemy, starts the state machine and hooks health changes.
 func _ready() -> void:
 	add_to_group("enemy")
 	state_machine.init(self, initial_state)
+	if health:
+		# Duplicate so each instance owns its own pool instead of sharing one.
+		health = health.duplicate()
+		health.value_changed.connect(_on_health_changed)
 
 
 ## Drives the state machine and the facing interpolation each physics frame.
@@ -48,18 +54,43 @@ func _physics_process(delta: float) -> void:
 	_update_facing(delta)
 
 
+## Adjusts health with keys 1 (decrease) and 2 (increase) for testing.
+func _unhandled_input(event: InputEvent) -> void:
+	if not health:
+		return
+	if event is InputEventKey and event.pressed and not event.echo:
+		var key_event: InputEventKey = event as InputEventKey
+		if key_event.keycode == KEY_1:
+			health.decrease(10)
+		elif key_event.keycode == KEY_2:
+			health.increase(10)
+
+
+## Logs whether health went up or down.
+func _on_health_changed(old_value: int, new_value: int, increased: bool) -> void:
+	var verb: String = "increased" if increased else "decreased"
+	print("%s health %s: %d -> %d" % [enemy_name, verb, old_value, new_value])
+
+
 ## Plays an animation, resolving fallbacks and skipping if already playing.
 func play_animation(anim_name: String, loop: bool = true) -> void:
+	if spine == null:
+		return
+	var anim_state: SpineAnimationState = spine.get_animation_state()
+	if anim_state == null:
+		return
 	anim_name = _resolve_anim(anim_name)
 	if anim_name == "" or anim_name == _current_anim:
 		return
 	_current_anim = anim_name
-	spine.get_animation_state().set_animation(anim_name, loop, 0)
+	anim_state.set_animation(anim_name, loop, 0)
 
 
 ## Returns the requested animation, or the first available one if missing.
 func _resolve_anim(anim_name: String) -> String:
 	var data: SpineSkeletonDataResource = spine.get_skeleton_data_res()
+	if data == null:
+		return ""
 	if data.find_animation(anim_name) != null:
 		return anim_name
 	# This skeleton lacks the requested animation, fall back to the first one.
@@ -78,9 +109,12 @@ func face_direction(dir_x: float) -> void:
 
 ## Smoothly interpolates the sprite scale toward the target facing.
 func _update_facing(delta: float) -> void:
+	var skeleton: SpineSkeleton = spine.get_skeleton()
+	if skeleton == null:
+		return
 	# Frame-rate independent smoothing; passing through 0 gives a paper flip.
 	_scale_x = lerpf(_scale_x, _facing, 1.0 - exp(-turn_speed * delta))
-	spine.get_skeleton().set_scale_x(_scale_x)
+	skeleton.set_scale_x(_scale_x)
 
 
 ## Enters combat when the player left-clicks this enemy.

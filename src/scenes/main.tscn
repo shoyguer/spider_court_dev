@@ -37,7 +37,7 @@ shape = SubResource("BoxShape3D_o5qli")
 debug_color = Color(0.91065425, 0.1691744, 0.6078782, 0.41960785)
 
 [node name="BaseEnemy" parent="." unique_id=496892301 instance=ExtResource("1_0wfyh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 275.58087, 6.5104713, 10.586929)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.067245, 6.5104713, -150.8893)
 
 [node name="Player" parent="." unique_id=176544344 instance=ExtResource("2_sugp2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 4, 0)

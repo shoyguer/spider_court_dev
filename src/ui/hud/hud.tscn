@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://ik0h1nmnqa4k"]
+
+[ext_resource type="Script" uid="uid://cc5w0r47wqnwj" path="res://ui/hud/hud.gd" id="1_xmswo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ilwqg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xmswo"]
+bg_color = Color(0.16470589, 0.16470589, 0.16470589, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4d6w6"]
+bg_color = Color(0.84705883, 0, 0.10980392, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Hud" type="CanvasLayer" unique_id=546996681]
+script = ExtResource("1_xmswo")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=188757947]
+offset_left = 18.0
+offset_top = 18.0
+offset_right = 425.0
+offset_bottom = 38.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ilwqg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=46327052]
+layout_mode = 2
+
+[node name="HealthBar" type="ProgressBar" parent="PanelContainer/VBoxContainer" unique_id=151514884]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_xmswo")
+theme_override_styles/fill = SubResource("StyleBoxFlat_4d6w6")
+value = 100.0
+show_percentage = false

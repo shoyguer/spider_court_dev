@@ -2,10 +2,18 @@
 
 [ext_resource type="Script" uid="uid://dvjyeotngr06v" path="res://characters/player/player.gd" id="1_exd8k"]
 [ext_resource type="SpineAtlasResource" uid="uid://d3f6w4l4ggrgd" path="res://characters/player/amagalm/amagalm.atlas" id="2_c6leb"]
+[ext_resource type="Script" uid="uid://cebfhi1i7iua1" path="res://characters/player/stats.gd" id="2_idpv6"]
 [ext_resource type="SpineSkeletonFileResource" uid="uid://c2xug4jbs8j2a" path="res://characters/player/amagalm/amagalm.skel" id="3_dirf7"]
 [ext_resource type="Script" uid="uid://dv7rbkbgss1wv" path="res://components/state_machine.gd" id="4_ixbpm"]
 [ext_resource type="Script" uid="uid://tayg5caqs7rn" path="res://characters/player/states/idle_state.gd" id="5_c6leb"]
 [ext_resource type="Script" uid="uid://ctpn4s8fj8un2" path="res://characters/player/states/move_state.gd" id="6_c6leb"]
+[ext_resource type="PackedScene" uid="uid://ik0h1nmnqa4k" path="res://ui/hud/hud.tscn" id="7_dirf7"]
+
+[sub_resource type="StatPool" id="StatPool_dirf7"]
+
+[sub_resource type="Resource" id="Resource_rpf03"]
+script = ExtResource("2_idpv6")
+metadata/_custom_type_script = "uid://cebfhi1i7iua1"
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ixbpm"]
 radius = 0.55755615
@@ -19,6 +27,8 @@ skeleton_file_res = ExtResource("3_dirf7")
 collision_layer = 2
 script = ExtResource("1_exd8k")
 speed = 80.0
+health = SubResource("StatPool_dirf7")
+stats = SubResource("Resource_rpf03")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1148194592]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.269823, 0)
@@ -44,3 +54,5 @@ script = ExtResource("6_c6leb")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=491643602]
 transform = Transform3D(1, 0, 0, 0, 0.9345713, 0.35577586, 0, -0.35577586, 0.9345713, 0, 43.03501, 69.857895)
+
+[node name="Hud" parent="." unique_id=546996681 instance=ExtResource("7_dirf7")]
