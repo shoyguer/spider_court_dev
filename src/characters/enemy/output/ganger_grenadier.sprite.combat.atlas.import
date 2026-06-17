@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://b7uw07l8wa75m"
+path="res://.godot/imported/ganger_grenadier.sprite.combat.atlas-f6bc9f0674ec7dd59229f3c0952edc34.spatlas"
+
+[deps]
+
+source_file="res://characters/enemy/output/ganger_grenadier.sprite.combat.atlas"
+dest_files=["res://.godot/imported/ganger_grenadier.sprite.combat.atlas-f6bc9f0674ec7dd59229f3c0952edc34.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

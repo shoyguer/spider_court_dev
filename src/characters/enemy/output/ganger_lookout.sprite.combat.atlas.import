@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://dc8xgea7frgqx"
+path="res://.godot/imported/ganger_lookout.sprite.combat.atlas-4680c5ab1adc45ed7275e505656b1e7e.spatlas"
+
+[deps]
+
+source_file="res://characters/enemy/output/ganger_lookout.sprite.combat.atlas"
+dest_files=["res://.godot/imported/ganger_lookout.sprite.combat.atlas-4680c5ab1adc45ed7275e505656b1e7e.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

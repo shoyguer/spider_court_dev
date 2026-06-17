@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://dk25rr4h3fsxx"]
+
+[ext_resource type="Script" uid="uid://h2lgf57lf14g" path="res://characters/enemy/base_enemy.gd" id="1_ry5y7"]
+[ext_resource type="Script" uid="uid://dv7rbkbgss1wv" path="res://components/state_machine.gd" id="2_6dagl"]
+[ext_resource type="SpineAtlasResource" uid="uid://hmybslfork4f" path="res://characters/enemy/output/ganger_enforcer.sprite.combat.atlas" id="2_dadja"]
+[ext_resource type="Script" uid="uid://bwhdwcmnkjfko" path="res://characters/enemy/states/enemy_idle_state.gd" id="3_mc2qu"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://dvwbbkdd53ums" path="res://characters/enemy/output/ganger_enforcer.sprite.combat.skel" id="3_w1d3h"]
+[ext_resource type="Script" uid="uid://b8rn6vn5mdx60" path="res://characters/enemy/states/enemy_chase_state.gd" id="4_6dagl"]
+[ext_resource type="Script" uid="uid://dsb0e12dquhke" path="res://characters/enemy/states/enemy_combat_state.gd" id="5_mc2qu"]
+
+[sub_resource type="StatPool" id="StatPool_dadja"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ii7m2"]
+radius = 0.55755615
+height = 1.1151123
+
+[sub_resource type="SpineSkeletonDataResource" id="SpineSkeletonDataResource_k4a2y"]
+atlas_res = ExtResource("2_dadja")
+skeleton_file_res = ExtResource("3_w1d3h")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ry5y7"]
+radius = 0.31307676
+
+[node name="BaseEnemy" type="CharacterBody3D" unique_id=496892301]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2493372, 0)
+collision_layer = 4
+script = ExtResource("1_ry5y7")
+aggro_range = 80.0
+combat_range = 3.0
+speed = 50.0
+health = SubResource("StatPool_dadja")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=340421876]
+transform = Transform3D(18.190592, 0, 0, 0, 30.93816, 0, 0, 0, 0.8462683, 0, 17.269823, 0)
+shape = SubResource("CapsuleShape3D_ii7m2")
+debug_color = Color(0.8963213, 0.2571483, 0.48276043, 0.41960785)
+
+[node name="SpineSprite3D" type="SpineSprite3D" parent="." unique_id=970732159]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0010070801, -1.8476377, -0.018432617)
+skeleton_data_res = SubResource("SpineSkeletonDataResource_k4a2y")
+billboard = 1
+preview_skin = "default"
+preview_animation = "None"
+preview_frame = false
+preview_time = 0.0
+
+[node name="StateMachine" type="Node" parent="." unique_id=1557779923]
+script = ExtResource("2_6dagl")
+
+[node name="IdleState" type="Node" parent="StateMachine" unique_id=1770990262]
+script = ExtResource("3_mc2qu")
+
+[node name="ChaseState" type="Node" parent="StateMachine" unique_id=555271568]
+script = ExtResource("4_6dagl")
+
+[node name="CombatState" type="Node" parent="StateMachine" unique_id=20023025]
+script = ExtResource("5_mc2qu")
+
+[node name="WanderTimer" type="Timer" parent="." unique_id=1956371034]
+
+[node name="ClickableArea" type="Area3D" parent="." unique_id=685606876]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ClickableArea" unique_id=885178631]
+transform = Transform3D(37.519146, 0, 0, 0, 57.57467, 0, 0, 0, 1, 0, 15.840109, 0)
+shape = SubResource("SphereShape3D_ry5y7")
+debug_color = Color(0.45994532, 0.59376574, 1.92523e-07, 0.41960785)
+
+[connection signal="input_event" from="ClickableArea" to="." method="_on_clickable_area_input_event"]

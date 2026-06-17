@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://d3f6w4l4ggrgd"
+path="res://.godot/imported/amagalm.atlas-c889791618431da283c729c9ffdebbd5.spatlas"
+
+[deps]
+
+source_file="res://characters/player/amagalm/amagalm.atlas"
+dest_files=["res://.godot/imported/amagalm.atlas-c889791618431da283c729c9ffdebbd5.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

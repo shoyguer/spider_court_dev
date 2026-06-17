@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://bc0t6ldihimwn"
+path="res://.godot/imported/ganger_lookout.sprite.combat.skel-e1ad2d3f37894e32f34ac7d9a3dea464.spskel"
+
+[deps]
+
+source_file="res://characters/enemy/output/ganger_lookout.sprite.combat.skel"
+dest_files=["res://.godot/imported/ganger_lookout.sprite.combat.skel-e1ad2d3f37894e32f34ac7d9a3dea464.spskel"]
+
+[params]
+

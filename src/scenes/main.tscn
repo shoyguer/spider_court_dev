@@ -1,36 +1,58 @@
 [gd_scene format=3 uid="uid://bnp7fji8x8qep"]
 
-[ext_resource type="SpineAtlasResource" uid="uid://d3f6w4l4ggrgd" path="res://assets/amagalm/amagalm.atlas" id="3_jyhfs"]
-[ext_resource type="SpineAtlasResource" uid="uid://hmybslfork4f" path="res://assets/output/ganger_enforcer.sprite.combat.atlas" id="3_tbgi4"]
-[ext_resource type="SpineSkeletonFileResource" uid="uid://c2xug4jbs8j2a" path="res://assets/amagalm/amagalm.skel" id="4_tbgi4"]
-[ext_resource type="SpineSkeletonFileResource" uid="uid://dvwbbkdd53ums" path="res://assets/output/ganger_enforcer.sprite.combat.skel" id="4_tefeu"]
+[ext_resource type="PackedScene" uid="uid://dk25rr4h3fsxx" path="res://characters/enemy/base_enemy.tscn" id="1_0wfyh"]
+[ext_resource type="Texture2D" uid="uid://dpgmiksftu65o" path="res://assets/textures/stone_pathway_02_diff_2k.jpg" id="1_sugp2"]
+[ext_resource type="Texture2D" uid="uid://buvnkm1f1fb5s" path="res://assets/textures/stone_pathway_02_nor_gl_2k.png" id="2_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://l04j7r3rfqqk" path="res://characters/player/player.tscn" id="2_sugp2"]
 
-[sub_resource type="SpineSkeletonDataResource" id="SpineSkeletonDataResource_sgp6g"]
-atlas_res = ExtResource("3_jyhfs")
-skeleton_file_res = ExtResource("4_tbgi4")
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0wfyh"]
 
-[sub_resource type="SpineSkeletonDataResource" id="SpineSkeletonDataResource_o6xl0"]
-atlas_res = ExtResource("3_tbgi4")
-skeleton_file_res = ExtResource("4_tefeu")
+[sub_resource type="Sky" id="Sky_sugp2"]
+sky_material = SubResource("ProceduralSkyMaterial_0wfyh")
+
+[sub_resource type="Environment" id="Environment_0wfyh"]
+background_mode = 2
+sky = SubResource("Sky_sugp2")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_sgp6g"]
+size = Vector2(4000, 4000)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jyhfs"]
+albedo_texture = ExtResource("1_sugp2")
+normal_enabled = true
+normal_scale = 1.5
+normal_texture = ExtResource("2_jyhfs")
+uv1_scale = Vector3(100, 100, 100)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o5qli"]
+size = Vector3(4000, 1, 4000)
+
+[sub_resource type="StatPool" id="StatPool_0wfyh"]
 
 [node name="Main" type="Node" unique_id=1349355324]
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1845760987]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.995633)
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=985304332]
+environment = SubResource("Environment_0wfyh")
 
-[node name="SpineSprite3D" type="SpineSprite3D" parent="." unique_id=384430741]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0010070801, 0.117118835, -0.018432617)
-skeleton_data_res = SubResource("SpineSkeletonDataResource_sgp6g")
-pixel_size = 0.1
-preview_skin = "cloak"
-preview_animation = "idle"
-preview_frame = false
-preview_time = 0.0
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=383082189]
+transform = Transform3D(-0.90499765, -0.23845024, 0.35230768, -0.0073020537, 0.83673245, 0.5475632, -0.42535385, 0.49297082, -0.7589821, -0.20104793, 137.33835, -2.6124115)
 
-[node name="SpineSprite2D" type="SpineSprite2D" parent="." unique_id=456702249]
-position = Vector2(398, 431)
-skeleton_data_res = SubResource("SpineSkeletonDataResource_o6xl0")
-preview_skin = "default"
-preview_animation = "combat"
-preview_frame = false
-preview_time = 0.0
+[node name="floor" type="StaticBody3D" parent="." unique_id=1780060015]
+collision_mask = 6
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="floor" unique_id=1057940554]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1731415, 0, -0.110839844)
+mesh = SubResource("PlaneMesh_sgp6g")
+surface_material_override/0 = SubResource("StandardMaterial3D_jyhfs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor" unique_id=307445865]
+shape = SubResource("BoxShape3D_o5qli")
+debug_color = Color(0.91065425, 0.1691744, 0.6078782, 0.41960785)
+debug_fill = false
+
+[node name="BaseEnemy" parent="." unique_id=496892301 instance=ExtResource("1_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.067245, 6.5104713, -150.8893)
+health = SubResource("StatPool_0wfyh")
+
+[node name="Player" parent="." unique_id=176544344 instance=ExtResource("2_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 4, 0)

@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://l04j7r3rfqqk"]
+
+[ext_resource type="Script" uid="uid://dvjyeotngr06v" path="res://characters/player/player.gd" id="1_exd8k"]
+[ext_resource type="SpineAtlasResource" uid="uid://d3f6w4l4ggrgd" path="res://characters/player/amagalm/amagalm.atlas" id="2_c6leb"]
+[ext_resource type="Script" uid="uid://cebfhi1i7iua1" path="res://characters/player/stats.gd" id="2_idpv6"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://c2xug4jbs8j2a" path="res://characters/player/amagalm/amagalm.skel" id="3_dirf7"]
+[ext_resource type="Script" uid="uid://dv7rbkbgss1wv" path="res://components/state_machine.gd" id="4_ixbpm"]
+[ext_resource type="Script" uid="uid://tayg5caqs7rn" path="res://characters/player/states/idle_state.gd" id="5_c6leb"]
+[ext_resource type="Script" uid="uid://ctpn4s8fj8un2" path="res://characters/player/states/move_state.gd" id="6_c6leb"]
+[ext_resource type="PackedScene" uid="uid://ik0h1nmnqa4k" path="res://ui/hud/hud.tscn" id="7_dirf7"]
+
+[sub_resource type="StatPool" id="StatPool_dirf7"]
+
+[sub_resource type="Resource" id="Resource_rpf03"]
+script = ExtResource("2_idpv6")
+metadata/_custom_type_script = "uid://cebfhi1i7iua1"
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ixbpm"]
+radius = 0.55755615
+height = 1.1151123
+
+[sub_resource type="SpineSkeletonDataResource" id="SpineSkeletonDataResource_c6leb"]
+atlas_res = ExtResource("2_c6leb")
+skeleton_file_res = ExtResource("3_dirf7")
+
+[node name="Player" type="CharacterBody3D" unique_id=176544344]
+collision_layer = 2
+script = ExtResource("1_exd8k")
+speed = 80.0
+health = SubResource("StatPool_dirf7")
+stats = SubResource("Resource_rpf03")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1148194592]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.269823, 0)
+shape = SubResource("CapsuleShape3D_ixbpm")
+debug_color = Color(0.8963213, 0.2571483, 0.48276043, 0.41960785)
+
+[node name="SpineSprite3D" type="SpineSprite3D" parent="." unique_id=1307080538]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.0010070801, 0.117118835, -0.018432617)
+skeleton_data_res = SubResource("SpineSkeletonDataResource_c6leb")
+pixel_size = 0.06
+billboard = 1
+preview_skin = "cloak"
+preview_animation = "idle"
+preview_frame = false
+preview_time = 0.0
+
+[node name="StateMachine" type="Node" parent="." unique_id=163711058]
+script = ExtResource("4_ixbpm")
+
+[node name="IdleState" type="Node" parent="StateMachine" unique_id=427319555]
+script = ExtResource("5_c6leb")
+
+[node name="MoveState" type="Node" parent="StateMachine" unique_id=140659957]
+script = ExtResource("6_c6leb")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=491643602]
+transform = Transform3D(1, 0, 0, 0, 0.8655538, 0.50081605, 0, -0.50081605, 0.8655538, 0, 70.29406, 76.75976)
+
+[node name="Hud" parent="." unique_id=546996681 instance=ExtResource("7_dirf7")]

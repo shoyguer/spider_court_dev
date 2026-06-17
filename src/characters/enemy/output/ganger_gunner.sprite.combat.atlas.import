@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://cbjyci53n0p0e"
+path="res://.godot/imported/ganger_gunner.sprite.combat.atlas-4186e83f7dd66c967eceac2194af5027.spatlas"
+
+[deps]
+
+source_file="res://characters/enemy/output/ganger_gunner.sprite.combat.atlas"
+dest_files=["res://.godot/imported/ganger_gunner.sprite.combat.atlas-4186e83f7dd66c967eceac2194af5027.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"
